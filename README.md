@@ -50,7 +50,8 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![Screen_Recording_2022-06-17_at_4_44_20_PM_AdobeExpress](https://user-images.githubusercontent.com/92122565/174413770-a9b2bc80-a0a6-4dde-bc48-77e6297f82a7.gif)
+
 
 GIF created with [Kap](https://getkap.co/).
 
