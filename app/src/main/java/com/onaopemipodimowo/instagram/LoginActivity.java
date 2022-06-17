@@ -20,6 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText etUsername;
     private EditText etPassword;
     private Button btnLogin;
+    private Button btnSignup;
 
     @Override
     protected void onCreate(Bundle savedInstancesState){
@@ -33,6 +34,17 @@ public class LoginActivity extends AppCompatActivity {
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
+        btnSignup = findViewById(R.id.btnSignup);
+        btnSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "onClick signUp button");
+                String username = etUsername.getText().toString();
+                String password = etPassword.getText().toString();
+                SignUpUser(username, password);
+
+            }
+        });
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,6 +56,21 @@ public class LoginActivity extends AppCompatActivity {
             }
         });{
             }
+        }
+        private void SignUpUser(String username, String password){
+            ParseUser.logOut();
+            ParseUser user = new ParseUser();
+            user.setPassword(password);
+            user.setUsername(username);
+
+            user.signUpInBackground(e -> {
+                if (e == null){
+                    Toast.makeText(LoginActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                    goMainActivity();
+                }else {
+                    Toast.makeText(LoginActivity.this, "Failed to make account", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
         private void loginUser(String username, String password) {
             Log.i(TAG,"Attempting to login user" + username);
